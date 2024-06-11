@@ -143,7 +143,38 @@ $routes->group('Api', function ($routes) {
                 ],
             ]
         );
-   
+        
+        $routes->resource(
+            'cursos',
+            [
+                'controller' => 'CursoController',
+                'namespace' => 'App\Controllers\Api\V1',
+                'only' => [
+                    'index',
+                    'show',
+                    'new',
+                    'create',
+                    'update',
+                    'delete'
+                ],
+            ]
+        );
+        $routes->resource(
+            'estados',
+            [
+                'controller' => 'EstadoController',
+                'namespace' => 'App\Controllers\Api\V1',
+                'only' => [
+                    'index',
+                    'show',
+                    'new',
+                    'create',
+                    'update',
+                    'delete'
+                ],
+            ]
+        );
+
         
     });
 });
