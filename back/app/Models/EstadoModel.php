@@ -4,21 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CursoModel extends Model
+class EstadoModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'cursos';
+    protected $table            = 'estados';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
-    protected $returnType       = \App\Entities\Curso::class;
+    protected $returnType       = \App\Entities\Estado::class;
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'user_id',
-        'estado_id',
-        'titulo',
-        'descripcion'
+        'nombre'
     ];
 
     // Dates

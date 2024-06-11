@@ -18,7 +18,7 @@ class Validation extends BaseConfig
      * Stores the classes that contain the
      * rules that are available.
      *
-     * @var list<string>
+     * @var string[]
      */
     public array $ruleSets = [
         Rules::class,
@@ -41,4 +41,14 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    // Agrega las reglas personalizadas para la creación de usuarios aquí
+    public $createUser = [
+        'role_id' => 'required',
+        'userDNI' => 'required',
+        'userName' => 'required|min_length[2]|max_length[50]',
+        'userEmail' => 'required|valid_email|is_unique[users.userEmail]',
+        'userPassword' => 'required|min_length[8]',
+    ];
+
+
 }

@@ -92,3 +92,15 @@ define('EVENT_PRIORITY_NORMAL', 100);
  * @deprecated Use \CodeIgniter\Events\Events::PRIORITY_HIGH instead.
  */
 define('EVENT_PRIORITY_HIGH', 10);
+
+define('RESOURCE_NOT_FOUND', 'Recurso no encontrado');
+define('RESOURCE_CREATED', 'Recurso creado');
+define('RESOURCE_UPDATED', 'Recurso actualizado');
+define('RESOURCE_DELETED', 'Recurso eliminado');
+define('RESOURCE_NO_DATA_PROVIDED', 'No se ha proporcionado datos');
+define('INVALID_EMAIL_PASSWORD', 'Email o password inválido');
+define('INVALID_EMAIL', 'Email inválido');
+define('INVALID_TOKEN', 'Token  Inválido');
+define('EXPIRED_EMAIL', 'Token expirado');
+define('USER_EXISTS', 'Usuario ya existente');
+define('PASSWORD_DONT_MATCH', 'Password no concuerdan');
