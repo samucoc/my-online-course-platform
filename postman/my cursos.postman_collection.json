@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "ddc90828-baa2-4f7f-a61b-63b1f1a67f09",
+		"name": "my cursos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13523271"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"role_id\"  : \"1\",\r\n        \"userDNI\" : \"15829807\",\r\n        \"userFullName\": \"Admin2\",\r\n        \"userEmail\": \"samu.silva@rocketmail.com\",\r\n        \"userPassword\" : \"123456\",\r\n        \"userPasswordConfirm\": \"123456\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/eztaller/proys/my-online-course-platform/back/public/Api/V1/users/register",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eztaller",
+						"proys",
+						"my-online-course-platform",
+						"back",
+						"public",
+						"Api",
+						"V1",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign-in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"userEmail\": \"samu.silva@rocketmail.com\",\r\n        \"userPassword\" : \"123456\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/eztaller/proys/my-online-course-platform/back/public/Api/V1/users/sign-in",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"eztaller",
+						"proys",
+						"my-online-course-platform",
+						"back",
+						"public",
+						"Api",
+						"V1",
+						"users",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
