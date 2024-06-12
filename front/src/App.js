@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import API_BASE_URL from './components/apiConstants';
 
-const App = () => {
+const App = ( ) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userDNI, setUserDNI] = useState();
   const [username, setUsername] = useState('');
@@ -31,22 +31,10 @@ const App = () => {
     setUserDNI('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const response = await axios.post(`${API_BASE_URL}/users/sign-in`, { userEmail: username, userPassword: password });
-      setUserDNI(response.data.userDNI);
-      setLoggedIn(true);
-      localStorage.setItem('userSession', response.data.userDNI);
-      localStorage.setItem('roleSession', response.data.role_id);
-    } catch (error) {
-      setError('Usuario o contraseña incorrectos');
-    }
-    setLoading(false);
+  const handleLoginSuccess = () => {
+    setLoggedIn(true);
   };
-
-
+  
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const toggleSidebar = () => {
@@ -87,7 +75,7 @@ const App = () => {
             error={error}
             setUsername={setUsername}
             setPassword={setPassword}
-            handleSubmit={handleSubmit}
+            onLoginSuccess={handleLoginSuccess}
           />
         )}
       </div>

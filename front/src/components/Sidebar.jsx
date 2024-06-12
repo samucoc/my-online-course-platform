@@ -6,7 +6,6 @@ const Sidebar = ({ onOptionChange }) => {
   return (
     <div className="sidebar" style={{ height: '100% !important' }}>
       <ul>
-        
           <li >
             Menú Cursos
               <ul>
@@ -19,7 +18,6 @@ const Sidebar = ({ onOptionChange }) => {
                 
               </ul>
           </li>
-        
       </ul>
     </div>
   );

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Login from './Login';
 import Register from './Register';
+import API_BASE_URL from './apiConstants';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-const Auth = () => {
+const Auth = ({ onLoginSuccess }) => {
   const [activeTab, setActiveTab] = useState('login');
 
   // State for Login
@@ -23,18 +27,67 @@ const Auth = () => {
     event.preventDefault();
     setLoading(true);
     setError('');
-    // Aquí va la lógica de autenticación
-    // Ejemplo: await loginUser(username, password);
-    setLoading(false);
+
+    try {
+      const response = await axios.post(API_BASE_URL+'/users/sign-in', {
+        userEmail: username,
+        userPassword: password,
+      });
+
+      if (response.status === 200) {
+        console.log('Login successful:', response.data);
+        onLoginSuccess(); // Llama a la función de callback para actualizar el estado de loggedIn en App.js
+      } else {
+        setError('Error en el inicio de sesión.');
+      }
+    } catch (error) {
+      console.error('Error al enviar los datos:', error);
+      if (error.response && error.response.data) {
+        setError(error.response.data.messages.error || 'Error en el inicio de sesión.');
+      } else {
+        setError('Error en el inicio de sesión.');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleRegister = async (event) => {
     event.preventDefault();
     setRegisterLoading(true);
     setRegisterError('');
-    // Aquí va la lógica de registro
-    // Ejemplo: await registerUser(email, registerUsername, registerPassword);
-    setRegisterLoading(false);
+
+    try {
+      const response = await axios.post(API_BASE_URL+'/users/register', {
+        role_id: 1,
+        userDNI : "88888888",
+        userEmail: email,
+        userFullName: registerUsername,
+        userPassword: registerPassword,
+        userPasswordConfirm: registerConfirmPassword,
+      });
+
+      if (response.status === 200 || response.status === 201) {
+        console.log('Registro exitoso:', response.data);
+        // Maneja la respuesta exitosa aquí, como redirigir al usuario
+        Swal.fire({
+          icon: 'success',
+          title: 'Registro Correcto',
+          text: response.data.messages,
+        });
+      } else {
+        setRegisterError('Error en el registro.');
+      }
+    } catch (error) {
+      console.error('Error al enviar los datos:', error);
+      if (error.response && error.response.data) {
+        setRegisterError(error.response.data.messages.error || 'Error en el registro.');
+      } else {
+        setRegisterError('Error en el registro.');
+      }
+    } finally {
+      setRegisterLoading(false);
+    }
   };
 
   return (
@@ -64,8 +117,8 @@ const Auth = () => {
             username={registerUsername}
             password={registerPassword}
             confirmPassword={registerConfirmPassword}
-            loading={registerLoading}
-            error={registerError}
+            registerLoading={registerLoading}
+            registerError={registerError}
             setEmail={setEmail}
             setUsername={setRegisterUsername}
             setPassword={setRegisterPassword}

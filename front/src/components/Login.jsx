@@ -12,7 +12,7 @@ const Login = ({ username, password, loading, error, setUsername, setPassword, h
               </div>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="userEmail" className="form-label">Nombre de Usuario</label>
+                  <label htmlFor="userEmail" className="form-label">Email</label>
                   <input
                     type="text"
                     className="form-control"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Register = ({ email, username, password, confirmPassword, loading, error, setEmail, setUsername, setPassword, setConfirmPassword, handleRegister }) => {
+const Register = ({ email, username, password, confirmPassword, registerLoading, registerError, setEmail, setUsername, setPassword, setConfirmPassword, handleRegister }) => {
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
@@ -35,9 +35,9 @@ const Register = ({ email, username, password, confirmPassword, loading, error, 
                 <div className="mb-3">
                   <label htmlFor="userPassword" className="form-label">Contraseña</label>
                   <input
-                    type="userPassword"
+                    type="password"
                     className="form-control"
-                    id="password"
+                    id="userPassword"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -45,17 +45,17 @@ const Register = ({ email, username, password, confirmPassword, loading, error, 
                 <div className="mb-3">
                   <label htmlFor="userPasswordConfirm" className="form-label">Repita Contraseña</label>
                   <input
-                    type="userPasswordConfirm"
+                    type="password"
                     className="form-control"
-                    id="password"
+                    id="userPasswordConfirm"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary" disabled={loading}>
-                  {loading ? 'Cargando...' : 'Registrar'}
+                <button type="submit" className="btn btn-primary" disabled={registerLoading}>
+                  {registerLoading ? 'Cargando...' : 'Registrar'}
                 </button>
-                {error && <div className="alert alert-danger mt-3">{error}</div>}
+                {registerError && <div className="alert alert-danger mt-3">{registerError}</div>}
               </form>
             </div>
           </div>
