@@ -30,9 +30,12 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla mycursos.cursos: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla mycursos.cursos: ~2 rows (aproximadamente)
+INSERT INTO `cursos` (`id`, `user_id`, `estado_id`, `titulo`, `descripcion`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 3, 2, 'curso 1', '1', NULL, '2024-06-12 18:58:33', NULL),
+	(2, 2, 2, 'curso 2', 'descripcion 2', NULL, '2024-06-12 20:30:45', NULL);
 
 -- Volcando estructura para tabla mycursos.estados
 CREATE TABLE IF NOT EXISTS `estados` (
@@ -42,9 +45,12 @@ CREATE TABLE IF NOT EXISTS `estados` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla mycursos.estados: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla mycursos.estados: ~2 rows (aproximadamente)
+INSERT INTO `estados` (`id`, `nombre`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, '1111', NULL, NULL, NULL),
+	(2, '2222', NULL, NULL, NULL);
 
 -- Volcando estructura para tabla mycursos.roles
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -76,12 +82,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 
--- Volcando datos para la tabla mycursos.users: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla mycursos.users: ~4 rows (aproximadamente)
 INSERT INTO `users` (`id`, `role_id`, `userDNI`, `userFullName`, `userEmail`, `userPassword`, `userPasswordRecoveryToken`, `userPasswordRecoveryTokenExpirationDatetime`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(2, 1, '15829807', 'Administrador', 'samu.silva@gmail.com', '123456', '', NULL, '2023-03-15 23:16:28', '2023-03-15 23:16:28', NULL),
-	(3, 2, '13834215', 'Profesor1', 'profesor1@gmail.com', '123456', '', NULL, '2023-03-15 23:16:28', '2023-03-15 23:16:28', NULL);
+	(3, 2, '13834215', 'Profesor1', 'profesor1@gmail.com', '123456', '', NULL, '2023-03-15 23:16:28', '2023-03-15 23:16:28', NULL),
+	(9, 1, '15829807', 'Admin2', 'samu.silva@rocketmail.com', '$2y$10$CBJykpvE7njmAdK5C7X98e7I5qS3d1nt6ig3mvQHMMDRIkB2rSMCG', '', NULL, '2024-06-12 03:51:25', '2024-06-12 03:51:25', NULL),
+	(13, 1, '88888888', 'olol', 'samu.silva@gmail.com2', '$2y$10$8GbmY3okcGbzrI/SD2pTZeli2gqYbZUyTe/sWHkG71el3w4Ulp6jK', '', NULL, '2024-06-12 06:28:51', '2024-06-12 06:28:51', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -113,7 +113,7 @@ const CursosForm = ({ onSubmit, onCancel, initialCurso, users, estados }) => {
           <Button
             fullWidth
             variant="outlined"
-            onClick={onCancel} // Cambiar esto a la función para volver a la lista de Empresas
+            onClick={onCancel} 
           >
             Volver a la lista de Cursos
           </Button>
