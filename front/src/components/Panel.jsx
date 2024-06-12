@@ -1,13 +1,14 @@
 import React from 'react';
 import '../css/Panel.css';
-import Dashboard from './Dashboard'; // Asegúrate de importar correctamente el componente LiquidacionesToPdf
-import Cursos from './Cursos'; // Asegúrate de importar correctamente el componente LiquidacionesToPdf
+import Dashboard from './Dashboard';
+import Cursos from './Cursos';
 
-const Panel = ({ currentOption }) => {
+const Panel = ({ currentOption, userDNI }) => {
+  
   const renderContent = () => {
     switch (currentOption) {
       case 'Dashboard':
-        return <Dashboard />;
+        return <Dashboard userDNI={userDNI}/>;
       case 'Cursos':
         return <Cursos />;
       default:

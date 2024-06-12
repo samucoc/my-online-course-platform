@@ -10,10 +10,10 @@ const Sidebar = ({ onOptionChange }) => {
             Menú Cursos
               <ul>
                 <li onClick={() => onOptionChange('Dashboard')}>
-                  Dashboard
+                  Visualización de Cursos
                 </li>
                 <li onClick={() => onOptionChange('Cursos')}>
-                  Cursos
+                  Gestión de Cursos
                 </li>
                 
               </ul>

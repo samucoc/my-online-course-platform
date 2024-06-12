@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem'; // Importa MenuItem desde Material-UI
 
-const CursosForm = ({ onSubmit, onCancel, initialCurso, users, estados }) => {
+const DashboardForm = ({ onSubmit, onCancel, initialCurso, users, estados }) => {
   const [cursoData, setCursoData] = useState({
     titulo: initialCurso ? initialCurso.titulo : '',
     descripcion: initialCurso ? initialCurso.descripcion : '',
@@ -124,4 +124,4 @@ const CursosForm = ({ onSubmit, onCancel, initialCurso, users, estados }) => {
 };
 
 
-export default CursosForm;
+export default DashboardForm;

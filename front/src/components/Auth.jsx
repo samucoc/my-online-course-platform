@@ -37,6 +37,9 @@ const Auth = ({ onLoginSuccess }) => {
       if (response.status === 200) {
         console.log('Login successful:', response.data);
         onLoginSuccess(); // Llama a la función de callback para actualizar el estado de loggedIn en App.js
+        localStorage.setItem('userSession', response.data.userDNI);
+
+
       } else {
         setError('Error en el inicio de sesión.');
       }

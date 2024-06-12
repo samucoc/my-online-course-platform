@@ -175,6 +175,8 @@ $routes->group('Api', function ($routes) {
             ]
         );
 
+        $routes->get('cursos/showByUser/(:segment)', 'CursoController::showByUser/$1', ['namespace' => 'App\Controllers\Api\V1']);
+
         
     });
 });

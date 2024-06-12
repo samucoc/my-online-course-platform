@@ -45,6 +45,24 @@ class CursoController extends ResourceController
         return $this->respond($data);
     }
 
+
+    public function showByRut($rut = null)
+    {
+        $db = \Config\Database::connect();
+        // Preparar la consulta SQL
+        $query = "SELECT * FROM cursos WHERE user_id in (select id from users where userDNI = ?)";
+        
+        // Ejecutar la consulta utilizando Query Builder de CodeIgniter
+        $data = $db->query($query, [$rut])->getResult();
+        // Verificar si se encontraron resultados
+        if (empty($data)) {
+            return $this->failNotFound(RESOURCE_NOT_FOUND);
+        }
+        // Responder con los datos encontrados
+        return $this->respond($data);
+    }
+
+
     /**
      * Return a new resource object, with default properties
      *

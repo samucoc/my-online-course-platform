@@ -11,11 +11,16 @@ import API_BASE_URL from './components/apiConstants';
 const App = ( ) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userDNI, setUserDNI] = useState();
+  const [userId, setUserId] = useState();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [currentOption, setCurrentOption] = useState('');
 
+  const handleOptionChange = (option) => {
+    setCurrentOption(option);
+  };
 
   useEffect(() => {
     const userSession = JSON.parse(localStorage.getItem('userSession'));
@@ -60,10 +65,10 @@ const App = ( ) => {
                 </button>
                 {/* Oculta la barra lateral en pantallas extra pequeñas (xs) */}
                 <div className={`col-md-2 ${sidebarVisible ? 'd-block' : 'd-none'} d-sm-block`}>
-                  <Sidebar />
+                  <Sidebar onOptionChange={handleOptionChange} />
                 </div>
                 <div className="col-md-10">
-                  <Panel />
+                  <Panel currentOption={currentOption} userDNI={userDNI}/>
                 </div>
               </div>
             </div>
